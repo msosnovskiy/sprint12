@@ -1,0 +1,19 @@
+{
+  "name": "sprint-12",
+  "version": "1.0.0",
+  "description": "project Mesto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msosnovskiy/sprint12.git.git"
+  },
+  "author": "Maksim Sosnovskiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msosnovskiy/sprint12.git/issues"
+  },
+  "homepage": "https://github.com/msosnovskiy/sprint12.git#readme"
+}
