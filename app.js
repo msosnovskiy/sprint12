@@ -7,7 +7,7 @@ const app = express();
 
 const { PORT = 3000 } = process.env;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use('/users', users);
 app.use('/cards', cards);
 
