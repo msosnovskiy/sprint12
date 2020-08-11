@@ -20,16 +20,13 @@ router.get('/:id', (req, res) => {
   promisesFs.readFile(usersDirectory, { encoding: 'utf-8' })
     .then((data) => {
       const users = JSON.parse(data);
-      const user = users.filter((item) => item._id === req.params.id);
-      if (!user) {
+      const currentUser = users.find((item) => item._id === req.params.id);
+      if (!currentUser) {
         res.status(404).send({ message: 'Нет пользователя с таким id' });
         return;
       }
-      res.send(user);
-    });
+      res.send(currentUser);
+    })
 });
-
-// router.get('/users/:id', doesUserExist);
-// router.get('/users/:id', sendUser);
 
 module.exports = router;
