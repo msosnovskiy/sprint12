@@ -9,10 +9,12 @@ router.get('/', (req, res) => {
     .then((data) => {
       const users = JSON.parse(data);
       if (!users) {
-        res.send({ message: 'Запрашиваемый ресурс не найден' });
-        return;
+        res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
       }
       res.send(users);
+    })
+    .catch(() => {
+      res.status(500).send({ message: 'Запрашиваемый ресурс не найден' });
     });
 });
 
@@ -23,10 +25,12 @@ router.get('/:id', (req, res) => {
       const currentUser = users.find((item) => item._id === req.params.id);
       if (!currentUser) {
         res.status(404).send({ message: 'Нет пользователя с таким id' });
-        return;
       }
       res.send(currentUser);
     })
+    .catch(() => {
+      res.status(500).send({ message: 'Запрашиваемый ресурс не найден' });
+    });
 });
 
 module.exports = router;

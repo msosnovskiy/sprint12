@@ -7,10 +7,13 @@ router.get('/', (req, res) => {
     .then((data) => {
       const cards = JSON.parse(data);
       if (!cards) {
-        res.send({ message: 'Запрашиваемый ресурс не найден' });
+        res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
         return;
       }
       res.send(cards);
+    })
+    .catch(() => {
+      res.status(500).send({ message: 'Запрашиваемый ресурс не найден' });
     });
 });
 
